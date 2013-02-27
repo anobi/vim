@@ -28,3 +28,6 @@
 [submodule "inkpot"]
 	path = inkpot
 	url = git://github.com/ciaranm/inkpot.git
+[submodule "bundle/inkpot"]
+	path = bundle/inkpot
+	url = git://github.com/ciaranm/inkpot.git
