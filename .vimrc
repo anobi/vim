@@ -8,6 +8,8 @@ set autochdir
 syntax on
 set guioptions-=m "remove menu bar in gVim
 set guioptions-=T "remove toolbar in gVim
+set guioptions+=Lrb "fix for the stupid scrollbar bug
+set guioptions-=Lrb
 set laststatus=2
 set encoding=utf8
 
