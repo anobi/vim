@@ -18,7 +18,7 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
-colorscheme solarized
+colorscheme inkpot
 
 map <silent> <c-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
