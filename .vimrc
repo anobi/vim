@@ -12,6 +12,7 @@ set guioptions+=Lrb "fix for the stupid scrollbar bug
 set guioptions-=Lrb
 set laststatus=2
 set encoding=utf8
+set guifont=consolas:h10
 
 set t_Co=256
 let g:solarized_termtrans=1
