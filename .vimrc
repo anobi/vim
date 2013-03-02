@@ -3,6 +3,7 @@ call pathogen#helptags()
 set nocompatible
 
 filetype plugin on
+filetype plugin indent on
 set ofu=syntaxcomplete#Complete
 set autochdir
 syntax on
