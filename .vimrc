@@ -4,6 +4,9 @@ set nocompatible
 
 filetype plugin on
 filetype plugin indent on
+setlocal expandtab
+setlocal shiftwidth=2
+setlocal tabstop=2
 set ofu=syntaxcomplete#Complete
 set autochdir
 syntax on
