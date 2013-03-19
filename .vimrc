@@ -4,16 +4,22 @@ set nocompatible
 
 filetype plugin on
 filetype plugin indent on
+
+set smartindent
 setlocal expandtab
-setlocal shiftwidth=2
-setlocal tabstop=2
+setlocal shiftwidth=4
+setlocal tabstop=4
+
 set ofu=syntaxcomplete#Complete
 set autochdir
+
 syntax on
+
 set guioptions-=m "remove menu bar in gVim
 set guioptions-=T "remove toolbar in gVim
 set guioptions+=Lrb "fix for the stupid scrollbar bug
 set guioptions-=Lrb
+
 set laststatus=2
 set encoding=utf8
 set guifont=consolas:h10
