@@ -5,11 +5,12 @@ set nocompatible
 filetype plugin on
 filetype plugin indent on
 
+set number
 set autoindent
 set smartindent
-setlocal expandtab
-setlocal shiftwidth=4
-setlocal tabstop=4
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 set ofu=syntaxcomplete#Complete
 set autochdir
