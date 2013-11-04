@@ -24,14 +24,25 @@ set guioptions-=Lrb
 
 set laststatus=2
 set encoding=utf8
-set guifont=consolas:h10
 
-set t_Co=256
-let g:solarized_termtrans=1
+if has("gui_running")
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ 8
+    elseif has("gui_macvim")
+        set guifont=Menlo\ Regular:h14
+    elseif has("gui_win32")
+        set guifont=Consolas:h10:cANSI
+    endif
+endif
+
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+
+set background=dark
+colorscheme inkpot
+
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
-colorscheme inkpot
 
 map <silent> <c-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
