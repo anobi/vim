@@ -42,7 +42,10 @@ set guioptions-=Lrb
 set laststatus=2
 set encoding=utf8
 
+set background=dark
+
 if has("gui_running")
+    colorscheme inkpot
     if has("gui_gtk2")
         set guifont=Inconsolata\ 8
     elseif has("gui_macvim")
@@ -50,6 +53,8 @@ if has("gui_running")
     elseif has("gui_win32")
         set guifont=Consolas:h10:cANSI
     endif
+else
+    colorscheme solarized
 endif
 
 let g:solarized_termcolors=256
