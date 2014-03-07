@@ -1,9 +1,26 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 set nocompatible
-
 filetype plugin on
 filetype plugin indent on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'wincent/Command-T'
+Bundle 'nelstrom/markdown-folding'
+Bundle 'Lokaltog/powerline'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ciaranm/inkpot'
+Bundle 'scrooloose/syntastic'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/nerdtree'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'tpope/vim-surround'
+Bundle 'jistr/vim-nerdtree-tabs'
 
 set number
 set autoindent
@@ -39,7 +56,7 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
 set background=dark
-colorscheme inkpot
+colorscheme solarized
 
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
