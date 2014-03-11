@@ -8,7 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'wincent/Command-T'
-Bundle 'nelstrom/markdown-folding'
+Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'Lokaltog/powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ciaranm/inkpot'
@@ -21,6 +21,8 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'tpope/vim-surround'
 Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'shougo/neocomplcache'
+Bundle 'mattn/emmet-vim'
 
 set number
 set autoindent
