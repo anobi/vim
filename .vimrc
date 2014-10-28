@@ -23,6 +23,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'shougo/neocomplcache'
 Bundle 'mattn/emmet-vim'
+Bundle 'jgdavey/tslime.vim'
 
 set number
 set autoindent
@@ -70,6 +71,11 @@ let NERDTreeQuitOnOpen=1
 
 map <silent> <c-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+map <F11> V"by:call Send_to_Tmux(@b)<CR>
+map <CR> V"by:call Send_to_Tmux(@b)<CR>
+vmap <CR> "by:call Send_to_Tmux(@b)<CR>
+map <F3> :call Tmux_Vars()<CR>
 
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
