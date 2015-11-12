@@ -2,8 +2,8 @@ set nocompatible
 filetype plugin on
 filetype plugin indent on
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 
@@ -24,6 +24,8 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'shougo/neocomplcache'
 Bundle 'mattn/emmet-vim'
 Bundle 'jgdavey/tslime.vim'
+
+call vundle#end()
 
 set number
 set autoindent
