@@ -2,28 +2,33 @@ set nocompatible
 filetype plugin on
 filetype plugin indent on
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has("win32") || has("gui_win32")
+	set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+	call vundle#begin('$HOME/vimfiles/bundle')
+else
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+endif
 
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'wincent/Command-T'
-Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'Lokaltog/powerline'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ciaranm/inkpot'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'tpope/vim-surround'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'shougo/neocomplcache'
-Bundle 'mattn/emmet-vim'
-Bundle 'jgdavey/tslime.vim'
+Plugin 'wincent/Command-T'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'Lokaltog/powerline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ciaranm/inkpot'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'scrooloose/nerdtree'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-surround'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'shougo/neocomplcache'
+Plugin 'mattn/emmet-vim'
+Plugin 'jgdavey/tslime.vim'
 
 call vundle#end()
 
@@ -66,7 +71,7 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 
 set background=dark
-colorscheme solarized
+colorscheme inkpot
 
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
