@@ -1,6 +1,24 @@
-set nocompatible
+syntax on
+
 filetype plugin on
 filetype plugin indent on
+
+set nocompatible
+set number
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set laststatus=2
+set encoding=utf8
+set ofu=syntaxcomplete#Complete
+set autochdir
+set guioptions-=m "remove menu bar in gVim
+set guioptions-=T "remove toolbar in gVim
+set guioptions+=Lrb "fix for the stupid scrollbar bug
+set guioptions-=Lrb
+set background=dark
 
 if has("win32") || has("gui_win32")
 	set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
@@ -18,41 +36,23 @@ Plugin 'Lokaltog/powerline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ciaranm/inkpot'
 Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-markdown'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'kien/ctrlp.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'tpope/vim-surround'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'ervandew/supertab'
 Plugin 'shougo/neocomplcache'
+Plugin 'shougo/vimproc'
 Plugin 'mattn/emmet-vim'
 Plugin 'jgdavey/tslime.vim'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
 
 call vundle#end()
-
-set number
-set autoindent
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-set ofu=syntaxcomplete#Complete
-set autochdir
-
-syntax on
-
-set guioptions-=m "remove menu bar in gVim
-set guioptions-=T "remove toolbar in gVim
-set guioptions+=Lrb "fix for the stupid scrollbar bug
-set guioptions-=Lrb
-
-set laststatus=2
-set encoding=utf8
-
-set background=dark
 
 if has("gui_running")
     colorscheme inkpot
@@ -64,14 +64,11 @@ if has("gui_running")
         set guifont=Consolas:h10:cANSI
     endif
 else
-    colorscheme solarized
+    colorscheme default
 endif
 
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-
-set background=dark
-colorscheme inkpot
 
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
