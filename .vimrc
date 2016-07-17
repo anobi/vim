@@ -30,27 +30,41 @@ endif
 
 Plugin 'VundleVim/Vundle.vim'
 
+"Color schemes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/zenburn'
+Plugin 'ciaranm/inkpot'
+
+"Utility
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+
+"Navigation && UI
 Plugin 'wincent/Command-T'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'Lokaltog/powerline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ciaranm/inkpot'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'ervandew/supertab'
-Plugin 'shougo/neocomplcache'
-Plugin 'shougo/vimproc'
+Plugin 'kien/ctrlp.vim'
+
+"Syntax & autocompletion
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'tpope/vim-surround'
+
+"Language spesific plugins
+Plugin 'tpope/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin 'jgdavey/tslime.vim'
+
+""Haskell
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
+
+""Python
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 
@@ -64,7 +78,7 @@ if has("gui_running")
         set guifont=Consolas:h10:cANSI
     endif
 else
-    colorscheme default
+    colorscheme zenburn
 endif
 
 let g:solarized_termcolors=256
@@ -72,6 +86,19 @@ let g:solarized_termtrans=1
 
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
+
+"
+"Neocomplete config
+"
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+"End of neocomplete
 
 map <silent> <c-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
