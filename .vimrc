@@ -79,6 +79,7 @@ call vundle#end()
 colorscheme hybrid_reverse
 let g:airline_theme='base16_google'
 exe 'hi NonText guifg=bg'
+exe 'hi NonText ctermfg=bg'
 
 if has("gui_running")
     if has("gui_gtk2")
@@ -124,6 +125,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_javascript_checkers = ['jshint']
 "end of syntastic
 
 map <silent> <c-n> :NERDTreeToggle<CR>
