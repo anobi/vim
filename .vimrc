@@ -77,7 +77,7 @@ call vundle#end()
 "Colorschemes & themes & stuff
 "
 colorscheme hybrid_reverse
-let g:airline_theme='base16_google'
+let g:airline_theme='hybrid'
 exe 'hi NonText guifg=bg'
 exe 'hi NonText ctermfg=bg'
 
