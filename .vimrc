@@ -20,6 +20,7 @@ set guioptions+=Lrb "fix for the stupid scrollbar bug
 set guioptions-=Lrb
 set background=dark
 set fillchars=""
+set relativenumber
 
 if has("win32") || has("gui_win32")
     set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
