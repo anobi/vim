@@ -27,8 +27,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
-
 "Color schemes
 Plug 'kristijanhusak/vim-hybrid-material'
 
