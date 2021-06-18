@@ -1,8 +1,5 @@
 syntax on
 
-filetype plugin on
-filetype plugin indent on
-
 set encoding=utf8
 set nocompatible
 set number
@@ -22,56 +19,58 @@ set background=dark
 set fillchars=""
 set relativenumber
 
-if has("win32") || has("gui_win32")
-    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$HOME/vimfiles/bundle')
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
+
+Plug 'VundleVim/Vundle.vim'
 
 "Color schemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/zenburn'
-Plugin 'ciaranm/inkpot'
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'kristijanhusak/vim-hybrid-material'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 "Utility
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
 
 "Navigation && UI
-Plugin 'wincent/Command-T'
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'wincent/Command-T'
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'ctrlpvim/ctrlp.vim'
 
 "Syntax & autocompletion
-Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 
 "Language spesific plugins
-Plugin 'tpope/vim-markdown'
-Plugin 'mattn/emmet-vim'
-Plugin 'jgdavey/tslime.vim'
+Plug 'tpope/vim-markdown'
+Plug 'mattn/emmet-vim'
+Plug 'jgdavey/tslime.vim'
 
 ""Haskell
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/neco-ghc'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
 
 ""Python
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
-call vundle#end()
+call plug#end()
 
 
 "
@@ -100,42 +99,30 @@ let g:solarized_termtrans=1
 let mapleader=" "
 let NERDTreeQuitOnOpen=1
 
-"End of colors
 
 "
-"Neocomplete config
+" Deoplete
 "
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
+let g:deoplete#enable_at_startup = 1
 
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-"End of neocomplete
-
+"
 "Syntastic config
+"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_javascript_checkers = ['jshint']
-"end of syntastic
+
 
 map <silent> <c-n> :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
-
-map <F11> V"by:call Send_to_Tmux(@b)<CR>
-map <CR> V"by:call Send_to_Tmux(@b)<CR>
-vmap <CR> "by:call Send_to_Tmux(@b)<CR>
-map <F3> :call Tmux_Vars()<CR>
 
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
