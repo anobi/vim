@@ -47,13 +47,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
 
 
 "Language spesific plugins
@@ -83,7 +80,7 @@ if has("gui_running")
     if has("gui_gtk2")
         set guifont=Hack:h10,Inconsolata\ 8
     elseif has("gui_macvim")
-        set guifont=Hack:h10,Menlo\ Regular:h14
+        set guifont=FiraCode-Regular:h10,Menlo\ Regular:h14
     elseif has("gui_win32")
         set guifont=Hack:h10:cANSI,Consolas:h10:cANSI
     endif
